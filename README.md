@@ -1,107 +1,123 @@
-#  General-Blog
+# General Blog
 
-Welcome ! This project tests your ability to build a modern React application with state management, styling, and component libraries.
+## Overview
 
-## Installation
+General Blog is a modern blog application built with React and TypeScript. The project demonstrates best practices in frontend development, including server-state management, clean component architecture, and responsive UI design. It uses a mock backend powered by JSON Server and focuses on efficient data fetching, caching, and UI consistency.
+
+This repository is intended to evaluate practical knowledge of React, TanStack Query, Tailwind CSS, and shadcn/ui through a real-world style assignment.
+
+---
+
+## Tech Stack
+
+* **React (with TypeScript)** – Component-based UI development
+* **TanStack Query** – Server-state management and data fetching
+* **Tailwind CSS** – Utility-first styling
+* **shadcn/ui** – Reusable and accessible UI components
+* **JSON Server** – Mock REST API for backend operations
+
+---
+
+## Features
+
+* View a list of all blog posts
+* View blog details by selecting a blog
+* Create a new blog post
+* Loading and error state handling
+* Clean, responsive layout
+* Modular and scalable project structure
+
+---
+
+## Installation and Setup
 
 ### Prerequisites
-- Node.js (v18 or higher)
-- Git
-- React.js knowledge
-- Familiarity with TanStack Query, Tailwind CSS, and shadcn/ui.
+
+* Node.js (v18 or higher)
+* Git
+* Basic knowledge of React and TypeScript
+* Familiarity with TanStack Query, Tailwind CSS, and shadcn/ui
 
 ### Setup Instructions
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
-   cd camonk-interview
+   cd general-blog
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
-3. **Install required libraries for the assignment** , ie, TanStack Query, Tailwind CSS, and  shadcn/ui
+3. **Install and configure required libraries**
+
+   Follow the official documentation to complete setup:
+
+   * TanStack Query
+   * Tailwind CSS
+   * shadcn/ui
+
 4. **Start the JSON Server (Backend API)**
+
    ```bash
    npm run server
    ```
-   The API will run on `http://localhost:3001`
 
-5. **Start the Development Server (in a new terminal)**
+   Backend runs at:
+
+   ```
+   http://localhost:3001
+   ```
+
+5. **Start the development server**
+
    ```bash
    npm run dev
    ```
-   The app will run on `http://localhost:5173`
 
-## Assignment Tasks
+   Frontend runs at:
 
-You are required to build a blog application with the following features:
+   ```
+   http://localhost:5173
+   ```
 
-### Required Technologies
-- ✅ **TanStack Query** - For server state management and data fetching
-  - 📚 [Documentation](https://tanstack.com/query/latest)
-- ✅ **Tailwind CSS** - For styling
-  - 📚 [Documentation](https://tailwindcss.com/docs)
-- ✅ **shadcn/ui** - For UI components
-  - 📚 [Documentation](https://ui.shadcn.com/)
+---
 
-## UI Reference
+## Application Requirements
 
-Here's a reference design for the blog application layout:
+### Implemented Tasks
 
-![Blog Reference](image.png)
+#### 1. Get All Blogs
 
-**Left Panel:** Blog list view showing blog cards with category, title, and description  
-**Right Panel:** Blog detail view displaying cover image, full content
+* Fetch and display all blogs using `GET /blogs`
+* Implemented with TanStack Query
+* Includes loading and error handling
 
-UI IMAGE - ![UI-refernece](ui.jpeg)
+#### 2. Get Blog by ID
 
-> **Note:** This is just a reference design. Your implementation does not have to look exactly like this. 
+* Display a single blog using `GET /blogs/:id`
+* Uses TanStack Query for caching and refetching
 
-For the blog content, use plain text — no need to use HTML-formatted text.
+#### 3. Create a New Blog
 
-### Tasks to Complete
+* Form to create a new blog using `POST /blogs`
+* Automatically invalidates and refreshes the blog list after creation
 
-#### 1. **Get All Blogs**
-- Create a component to display all blogs using `GET /blogs`
-- Use TanStack Query for data fetching
-- Handle loading and error states
+---
 
-#### 2. **Get Blog by ID**
-- Implement single blog view using `GET /blogs/:id`
-- Use TanStack Query for data fetching
+## API Endpoints
 
-#### 3. **Create a New Blog**
-- Build a form to create a new blog using `POST /blogs`
-- Invalidate queries after successful creation
+| Method | Endpoint     | Description       |
+| ------ | ------------ | ----------------- |
+| GET    | `/blogs`     | Fetch all blogs   |
+| GET    | `/blogs/:id` | Fetch blog by ID  |
+| POST   | `/blogs`     | Create a new blog |
 
-> Organize your components in a suitable file structure within the `src/` directory.
-
-### API Endpoints
-
-The JSON Server provides the following endpoints:
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/blogs` | Get all blogs |
-| GET | `/blogs/:id` | Get a specific blog by ID |
-| POST | `/blogs` | Create a new blog |
-
-### Evaluation Criteria
-
-Your submission will be evaluated on:
-- ✅ Correct implementation of TanStack Query hooks
-- ✅ Proper use of Tailwind CSS for styling
-- ✅ Integration of shadcn/ui components
-- ✅ Code organization and structure
-- ✅ Error handling and loading states
-- ✅ Responsive design []
-- ✅ User experience and UI polish
-
-
+---
 
 ## Sample Blog Object
 
@@ -117,42 +133,51 @@ Your submission will be evaluated on:
 }
 ```
 
-description: A short summary of the blog  
-content: The full content of the blog
-
-## Tips
-
-- Set up TanStack Query's `QueryClientProvider` in your app root
-- Configure Tailwind CSS properly in your config files
-- Use shadcn components like `Card`, `Button`, `Input`, etc.
-- Handle loading states with skeletons
-- Implement proper error boundaries
-- Consider using React Router for navigation (optional)
-
-## Submission
-
-Once you've completed the assignment:
-1. Ensure all tasks are working correctly
-2. Commit your changes with clear commit messages
-3. Push to your repository
-4. Share the repository link for review in the google form provided
-
-## FAQ
-
-**Do I need to deploy the code?**  
-No. Simply clone the repository, commit and push your changes, and share the repository link via the Google Form.
-
-**Is it mandatory to use TypeScript and TanStack Query?**  
-Yes, using both TypeScript and TanStack Query is compulsory for this assignment.
-
-**Is using JSON Server mandatory, or can I create my own server?**  
-Using JSON Server is mandatory. Please use the provided JSON Server setup rather than creating your own backend.
-
-**What should I use for styling?**  
-Use **Tailwind CSS** and **shadcn/ui** for styling. You are expected to install, configure, and use both Tailwind CSS and shadcn/ui components in your implementation.
-
-**Have more questions?**  
-If you have any additional doubts, feel free to reach out at: `developer@camonk.com`.
 
 
-Good luck! 🚀
+---
+
+## Project Structure (High Level)
+
+```
+src/
+├── components/
+│   ├── ui/
+│   │   ├── input.tsx
+│   │   ├── label.tsx
+│   │   └── textarea.tsx
+│   ├── BlogDetail.tsx
+│   ├── BlogList.tsx
+│   └── CreateBlogForm.tsx
+│
+├── hooks/
+│   ├── useBlog.ts
+│   ├── useBlogs.ts
+│   └── useCreateBlog.ts
+│
+├── lib/
+│   └── utils.ts
+│
+├── services/
+│   └── api.ts
+│
+├── types/
+│   └── blog.ts
+│
+├── App.tsx
+├── main.tsx
+└── index.css
+```
+
+This structure promotes separation of concerns, reusability, and scalability, closely mirroring real-world frontend application architecture.
+
+---
+
+## Conclusion
+
+General Blog demonstrates practical frontend engineering skills, including working with asynchronous data, modern UI libraries, and clean component-driven design. The project reflects real-world development practices and serves as a strong foundation for scalable React applications.
+
+
+
+
+
